@@ -7,6 +7,10 @@ on:
       - master
       - main
   pull_request:
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
 permissions:
   contents: read
   # Optional: allow read access to pull request. Use with `only-new-issues` option.
@@ -19,14 +23,12 @@ jobs:
       - uses: actions/setup-go@v2
       - uses: actions/checkout@v2
       - name: golangci-lint
-        working-directory: ./kibble
         uses: golangci/golangci-lint-action@v2
         with:
           # Optional: version of golangci-lint to use in form of v1.2 or v1.2.3 or `latest` to use the latest version
           version: v1.29
 
-          # Optional: working directory, useful for monorepos
-          # working-directory: somedir
+          working-directory: ./kibble
 
           # Optional: golangci-lint command line arguments.
           # args: --issues-exit-code=0
