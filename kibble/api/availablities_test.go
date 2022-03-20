@@ -58,5 +58,5 @@ func TestDeserializeAvailabilities(t *testing.T) {
 	var d availabilities
 	err := json.Unmarshal([]byte(body), &d)
 	assert.NoError(t, err)
-	assert.Equal(t, 3, len(d))
+	assert.Equal(t, 13, len(d))
 }
