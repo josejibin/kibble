@@ -14,9 +14,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./kibble
     steps:
       - name: Set up Go 1.17
         uses: actions/setup-go@v2
@@ -45,4 +42,5 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run tests
+        working-directory: ./kibble
         run: make test
